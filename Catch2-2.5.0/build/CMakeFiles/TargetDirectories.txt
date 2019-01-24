@@ -1,0 +1,6 @@
+/home/radek/Workspace/hello-catch2-cmake/Catch2-2.5.0/build/CMakeFiles/install/strip.dir
+/home/radek/Workspace/hello-catch2-cmake/Catch2-2.5.0/build/CMakeFiles/edit_cache.dir
+/home/radek/Workspace/hello-catch2-cmake/Catch2-2.5.0/build/CMakeFiles/rebuild_cache.dir
+/home/radek/Workspace/hello-catch2-cmake/Catch2-2.5.0/build/CMakeFiles/list_install_components.dir
+/home/radek/Workspace/hello-catch2-cmake/Catch2-2.5.0/build/CMakeFiles/install/local.dir
+/home/radek/Workspace/hello-catch2-cmake/Catch2-2.5.0/build/CMakeFiles/install.dir
