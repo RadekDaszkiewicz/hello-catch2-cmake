@@ -9,6 +9,7 @@ class Database {
     std::map<int,product_t> database;
     public:
     std::list <product_t> getAll();
+    void insert(const product_t &p);
 };
 
 #endif

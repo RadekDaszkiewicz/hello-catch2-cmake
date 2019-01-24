@@ -42,3 +42,30 @@ TEST_CASE("testing getting data from database", "[db][crud][getAll]")
         REQUIRE(db.getAll() == expected_list);
     }
 }
+
+SCENARIO("database operations", "[db][crud]")
+{
+    using namespace Catch::Matchers;
+    using namespace std;
+    GIVEN("database is available with mocked data")
+    {
+        DatabaseInh db;
+        map<int, product_t> alldb = {{1, {1, "Pierwszy produkt", 1.0}},
+                                     {2, {2, "Drugi", 2.22}}};
+        db.setDb(alldb);
+        list<product_t> alllist;
+        for (auto e : alldb)
+            alllist.push_back(e.second);
+        CHECK(db.getAll() == alllist);
+        WHEN("one element was added to database")
+        {
+            REQUIRE_NOTHROW(db.insert({3, "Kolejna rzecz", 9.99}));
+            THEN("the database should contain Kolejna rzecz ")
+            {
+                alllist.push_back({3, "Kolejna rzecz", 9.99});
+                CHECK(db.getAll() == alllist);
+            }
+        }
+
+    }
+}

@@ -7,3 +7,7 @@ std::list<product_t> Database::getAll() {
     }
     return result;
 }
+
+void Database::insert(const product_t &p) {
+
+}
