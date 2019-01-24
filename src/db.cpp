@@ -9,5 +9,5 @@ std::list<product_t> Database::getAll() {
 }
 
 void Database::insert(const product_t &p) {
-
+    database[p.id] = p;
 }
