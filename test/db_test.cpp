@@ -89,3 +89,45 @@ TEST_CASE("testing getting element by id")
 
     }
 }
+
+SCENARIO("deleting product from database")
+{
+    using namespace Catch::Matchers;
+    using namespace std;
+    GIVEN("database is available with mocked data")
+    {
+        DatabaseInh db;
+        map<int, product_t> alldb = {{1, {1, "Pierwszy produkt", 1.0}},
+                                     {2, {2, "Drugi", 2.22}},
+                                     {3, {3, "Kolejna rzecz", 9.99}}};
+        db.setDb(alldb);
+        list<product_t> alllist;
+        for (auto e : alldb)
+            alllist.push_back(e.second);
+        CHECK(db.getAll() == alllist);
+        WHEN("product with id 2 was removed from database")
+        {
+            REQUIRE_NOTHROW(db.remove(2));
+            THEN("the database shouldn't contain product with id 2")
+            {
+                for (auto p : db.getAll())
+                {
+                    CHECK(p.id != 2);
+                }
+            }
+        }
+        WHEN("we try to remove nonexistent element")
+        {
+            THEN("exception should be thrown")
+            {
+                REQUIRE_THROWS_AS(db.remove(100),std::invalid_argument);
+            }
+            THEN("exception should contain correct text")
+            {
+
+                REQUIRE_THROWS_WITH(db.remove(100),
+                                    EndsWith("was not found") || StartsWith("element"));
+            }
+        }
+    }
+}

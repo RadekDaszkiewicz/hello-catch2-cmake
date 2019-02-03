@@ -19,3 +19,7 @@ product_t Database::getProductById(const int id) {
         }
     }
 }
+
+void Database::remove(const int id) {
+
+}

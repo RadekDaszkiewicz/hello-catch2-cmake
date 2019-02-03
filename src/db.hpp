@@ -11,6 +11,7 @@ class Database {
     std::list <product_t> getAll();
     void insert(const product_t &p);
     product_t getProductById(const int id);
+    void remove(const int id);
 };
 
 #endif
