@@ -21,5 +21,6 @@ product_t Database::getProductById(const int id) {
 }
 
 void Database::remove(const int id) {
-
+    if (database.count(id) == 0) throw std::invalid_argument("element was not found");
+    database.erase(id);
 }
