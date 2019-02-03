@@ -11,3 +11,7 @@ std::list<product_t> Database::getAll() {
 void Database::insert(const product_t &p) {
     database[p.id] = p;
 }
+
+product_t Database::getProductById(const int id) {
+    return product_t();
+}
