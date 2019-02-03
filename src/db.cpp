@@ -13,5 +13,9 @@ void Database::insert(const product_t &p) {
 }
 
 product_t Database::getProductById(const int id) {
-    return product_t();
+    for (auto &e: database) {
+        if (e.second.id == id) {
+            return e.second;
+        }
+    }
 }
